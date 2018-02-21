@@ -60,8 +60,8 @@ export class UserService {
   }
 
   attemptAuth(type, credentials): Observable<User> {
-    const route = (type === 'login') ? '/login' : '';
-    return this.apiService.post('/users' + route, {user: credentials})
+    const route = (type === 'login') ? '/login' : '/register';
+    return this.apiService.post( route, credentials )
     .map(
       data => {
         this.setAuth(data.user);
@@ -74,15 +74,29 @@ export class UserService {
     return this.currentUserSubject.value;
   }
 
+  getUser(userId): Observable<User>{
+    return this.apiService.get('/user/' + userId)
+      .map(
+        data => { return data.user; }
+      )
+  }
+
   // Update the user on the server (email, pass, etc)
-  update(user): Observable<User> {
+  update(user, userId): Observable<User> {
     return this.apiService
-    .put('/user', { user })
+    .put('/user/' + userId, { user })
     .map(data => {
       // Update the currentUser observable
       this.currentUserSubject.next(data.user);
       return data.user;
     });
+  }
+
+  uploadImage(formData): Observable<any> {
+    return this.apiService.files('/fileUpload', formData).map(
+      data => {
+        return data;
+      })
   }
 
 }

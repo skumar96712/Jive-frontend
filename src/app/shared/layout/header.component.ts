@@ -16,15 +16,14 @@ export class HeaderComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.userService.currentUser.subscribe(
-      (userData) => {
-        this.currentUser = userData;
-      }
-    )
+    // this.userService.currentUser.subscribe(
+    //   (userData) => {
+    //     this.currentUser = userData;
+    //   }
+    // )
   }
 
   logout() {
-    console.log('log out called');
     this.userService.purgeAuth();
     this.router.navigateByUrl('/login');
   }

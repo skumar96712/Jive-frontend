@@ -15,6 +15,7 @@ import {
   UserService
 } from './shared';
 import { AppRoutingModule } from 'app/app-routing.module';
+import { AdminModule } from './admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { AppRoutingModule } from 'app/app-routing.module';
     BrowserModule,
     AuthModule,
     HomeModule,
+    AdminModule,
     AppRoutingModule,
     SharedModule,
   ],

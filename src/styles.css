@@ -5344,7 +5344,7 @@ footer {
 /* You can add global styles to this file, and also import other style files */
 body{font-family: arial;margin: 0;}
 html{padding-bottom: 0 !important;}
-.hm-header{width: 100%;margin: 0 auto;display: inline-block;position: absolute;}
+.hm-header{width: 100%;margin: 0 auto;display: inline-block;margin-bottom: -9px;}
 .hm-logo{width: 30%;float: left;}
 .hm-nav-bar{
 	width: 50%;
@@ -5370,7 +5370,7 @@ html{padding-bottom: 0 !important;}
 .hm-media{color: #5cb85c;}
 .hm-logo h2 {
 	font-size: 40px;
-	margin: 23px 108px;
+	margin: 12px 108px;
 }
 .hm-nav-bar::before {
 	content: "";
@@ -5382,8 +5382,9 @@ html{padding-bottom: 0 !important;}
 	left: -26px;
 	display: inline-block;
 	height: auto;
-	padding: 34px 0;
-	-webkit-padding-after: 32px;
+	padding: 34px 0 33px 0;
+  -webkit-padding-after: 33px;
+  -webkit-padding-before: 33px;
 }
 .hm-banner-live {
 	width: 53%;
@@ -5436,8 +5437,8 @@ html{padding-bottom: 0 !important;}
 
 .hm-footer{  
 	text-align: center;
-	background: #000;
-	margin-top: -21px;
+  background: #000;
+  clear: both;
 }
 
 .hm-footer h2{font-size: 20px;
@@ -5464,6 +5465,76 @@ html{padding-bottom: 0 !important;}
 .login-sec-fields form fieldset input {
 font-size: 13px;
 }
+.admin-sec{text-align: center;}
+.profile-page{
+  margin: 0px 15% 47px;
+  background: white;
+  display: inline-block;
+  width: 100%;
+  padding: 35px 0;
+  padding: 26px 0;
+}
+.upload-btn{border: 0px;
+  background: hsl(120, 39%, 54%);
+  padding: 8px 38px;
+  border-radius: 3px;
+  font-size: 15px;
+  font-weight: 600;
+  margin: 13px 0;
+  color: white;
+}
+.profile-inside-sec {  float: left;}
+.profile-left{float: left;text-align: center;}
+.profile-left img {
+  margin-bottom: 10px;
+  height: 200px;
+  width: 200px;
+}
+.profile-right{float: left;padding-left: 0;width: 72%;}
+.profile-right h3 {
+  font-size: 20px;
+  padding-left: 0;
+  font-weight: 600;
+  color: #5cb85c;
+}
+.profile-right form input{
+  width: 90%;
+border: 1px solid #d2d1d1;
+margin: 5px 0;
+font-size: 14px;
+padding: 8px 6px;
+border-radius: 0.3rem;
+}
+.button-list{list-style-type: none;
+  width: 75%;
+  text-align: right;}
+.button-list li{display: inline-block;}
+.second-sec{
+  background: #efefef;
+}
+.profile-left label {
+  background: #5cb85c;
+  margin: 11px 0px;
+  color: white;
+  font-size: 16px;
+  padding: 8px 37px;
+}
+
+.profile-heading{text-align: center;}
+.profile-heading h4{
+  padding: 34px 0 19px;
+color: #5cb85c;
+font-size: 21px;
+margin-bottom: 0; 
+font-weight: 600;
+}
+
+.response-message{
+  color: green;
+}
+
+
+
 
 @media (min-width: 1300px) and (max-width: 1400px){
 	.hm-nav-bar ul li a {
@@ -5543,3 +5614,4 @@ font-size: 13px;
   font-size: 14px;
   color: red;
 }
+

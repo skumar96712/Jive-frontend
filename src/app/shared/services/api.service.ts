@@ -14,14 +14,16 @@ export class ApiService {
     private jwtService: JwtService
   ) {}
 
-  private setHeaders(): Headers {
+  private setHeaders(image:boolean = false): Headers {
     const headersConfig = {
-      'Content-Type': 'application/json',
       'Accept': 'application/json'
     };
+    if (!image) {
+      headersConfig['Content-Type'] = 'application/json';
+    }
 
     if (this.jwtService.getToken()) {
-      headersConfig['Authorization'] = `Token ${this.jwtService.getToken()}`;
+      headersConfig['Authorization'] = `${this.jwtService.getToken()}`;
     }
     return new Headers(headersConfig);
   }
@@ -60,6 +62,16 @@ export class ApiService {
     return this.http.delete(
       `${environment.api_url}${path}`,
       { headers: this.setHeaders() }
+    )
+    .catch(this.formatErrors)
+    .map((res: Response) => res.json());
+  }
+
+  files(path: string, body): Observable<any> {
+    return this.http.post(
+      `${environment.api_url}${path}`,
+      body,
+      { headers: this.setHeaders(true) }
     )
     .catch(this.formatErrors)
     .map((res: Response) => res.json());

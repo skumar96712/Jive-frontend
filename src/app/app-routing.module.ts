@@ -6,11 +6,14 @@ import { HomeAuthResolver } from 'app/home/home-auth-resolver.service';
 import { AuthComponent } from 'app/auth/auth.component';
 import { NoAuthGuard } from 'app/auth/no-auth-guard.service';
 import { AuthGuard } from 'app/shared';
+import { DashboardComponent, ProfileComponent } from './admin';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full', resolve: { isAuthenticated: HomeAuthResolver } },
   { path: 'login', component: AuthComponent, pathMatch: 'full', canActivate: [NoAuthGuard] },
   { path: 'register', component: AuthComponent, pathMatch: 'full', canActivate: [NoAuthGuard] },
+  { path: 'dashboard', component: DashboardComponent, pathMatch: 'full', canActivate: [AuthGuard] },
+  { path: 'profile', component: ProfileComponent, pathMatch: 'full', canActivate: [AuthGuard] },
 ];
 
 @NgModule({
