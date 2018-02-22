@@ -1,3 +1,5 @@
+// component for showing errors
+
 import { Component, Input } from '@angular/core';
 
 import { Errors } from './models';

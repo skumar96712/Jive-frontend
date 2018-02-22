@@ -12,6 +12,7 @@ export class AppComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    // this hits only at the very first opening or at hard refresh of app in browser
     this.userService.populate();
   }
 }

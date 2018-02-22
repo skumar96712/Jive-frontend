@@ -6,13 +6,14 @@ import { NoAuthGuard } from './no-auth-guard.service';
 import { SharedModule } from '../shared';
 
 @NgModule({
+  // importing modules to get the availability in auth(login/register pages) area 
   imports: [
     SharedModule
   ],
+  // declaration of the components
   declarations: [
     AuthComponent
   ],
-
   providers: [
     NoAuthGuard
   ]

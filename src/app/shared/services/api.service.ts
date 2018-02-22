@@ -14,6 +14,7 @@ export class ApiService {
     private jwtService: JwtService
   ) {}
 
+  // setting headers on every http call
   private setHeaders(image:boolean = false): Headers {
     const headersConfig = {
       'Accept': 'application/json'
@@ -32,12 +33,14 @@ export class ApiService {
      return Observable.throw(error.json());
   }
 
+  // http get method
   get(path: string, params: URLSearchParams = new URLSearchParams()): Observable<any> {
     return this.http.get(`${environment.api_url}${path}`, { headers: this.setHeaders(), search: params })
     .catch(this.formatErrors)
     .map((res: Response) => res.json());
   }
 
+  // http put method for updating data
   put(path: string, body: Object = {}): Observable<any> {
     return this.http.put(
       `${environment.api_url}${path}`,
@@ -48,6 +51,7 @@ export class ApiService {
     .map((res: Response) => res.json());
   }
 
+  // http post method for saving data
   post(path: string, body: Object = {}): Observable<any> {
     return this.http.post(
       `${environment.api_url}${path}`,
@@ -58,6 +62,7 @@ export class ApiService {
     .map((res: Response) => res.json());
   }
 
+  // http delete method
   delete(path): Observable<any> {
     return this.http.delete(
       `${environment.api_url}${path}`,
@@ -67,6 +72,7 @@ export class ApiService {
     .map((res: Response) => res.json());
   }
 
+  // http post method to upload files
   files(path: string, body): Observable<any> {
     return this.http.post(
       `${environment.api_url}${path}`,

@@ -18,11 +18,13 @@ import { AppRoutingModule } from 'app/app-routing.module';
 import { AdminModule } from './admin/admin.module';
 
 @NgModule({
+  // declaration of the components
   declarations: [
     AppComponent,
     FooterComponent,
     HeaderComponent
   ],
+  // importing modules to get the availability in complete app 
   imports: [
     BrowserModule,
     AuthModule,
@@ -31,6 +33,7 @@ import { AdminModule } from './admin/admin.module';
     AppRoutingModule,
     SharedModule,
   ],
+  // providers for services
   providers: [
     ApiService,
     AuthGuard,

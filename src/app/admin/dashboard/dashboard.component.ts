@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { UserService, User } from '../../shared';
 
 @Component({
@@ -9,11 +8,11 @@ import { UserService, User } from '../../shared';
 export class DashboardComponent implements OnInit {
   user: User;
   constructor(
-    private router: Router,
     private userService: UserService
   ) {}
 
   ngOnInit() {
+    // getting login user info to show on dashboard page
     this.user = this.userService.getCurrentUser();
   }
 

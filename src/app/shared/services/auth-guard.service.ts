@@ -1,3 +1,6 @@
+// service for allowing only the authorized users to open page
+// anonymous users can't view the pages
+
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs/Rx';

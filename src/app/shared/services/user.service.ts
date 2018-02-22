@@ -59,6 +59,7 @@ export class UserService {
     this.isAuthenticatedSubject.next(false);
   }
 
+  // method for login or register new user, based on type sent in parameter
   attemptAuth(type, credentials): Observable<User> {
     const route = (type === 'login') ? '/login' : '/register';
     return this.apiService.post( route, credentials )
@@ -70,10 +71,12 @@ export class UserService {
     );
   }
 
+  // method to get the current login user details
   getCurrentUser(): User {
     return this.currentUserSubject.value;
   }
 
+  //method to get user details from back end server by sending user id
   getUser(userId): Observable<User>{
     return this.apiService.get('/user/' + userId)
       .map(
@@ -92,6 +95,7 @@ export class UserService {
     });
   }
 
+  // upload image on server
   uploadImage(formData): Observable<any> {
     return this.apiService.files('/fileUpload', formData).map(
       data => {

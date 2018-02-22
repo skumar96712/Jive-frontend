@@ -23,8 +23,9 @@ export class HeaderComponent implements OnInit {
     // )
   }
 
+  // method for logout button
   logout() {
-    this.userService.purgeAuth();
-    this.router.navigateByUrl('/login');
+    this.userService.purgeAuth();            // removing user from local storage
+    this.router.navigateByUrl('/login');     // navigate to login page
   }
 }

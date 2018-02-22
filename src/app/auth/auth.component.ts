@@ -41,6 +41,7 @@ export class AuthComponent implements OnInit {
     });
   }
 
+  // method to call on form submission
   submitForm() {
     this.isSubmitting = true;
     this.errors = new Errors();
@@ -49,6 +50,7 @@ export class AuthComponent implements OnInit {
     this.userService
     .attemptAuth(this.authType, credentials)
     .subscribe(
+      // navigate to dashboard page after successfully login or register
       data => this.router.navigateByUrl('/dashboard'),
       err => {
         this.errors = err;

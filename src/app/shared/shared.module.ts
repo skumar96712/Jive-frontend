@@ -8,6 +8,7 @@ import { ListErrorsComponent } from './list-errors.component';
 import { ShowAuthedDirective } from './show-authed.directive';
 
 @NgModule({
+  // importing modules to get the availability on all shared services
   imports: [
     CommonModule,
     FormsModule,
@@ -15,10 +16,12 @@ import { ShowAuthedDirective } from './show-authed.directive';
     HttpModule,
     RouterModule
   ],
+  // declaration of the components
   declarations: [
     ListErrorsComponent,
     ShowAuthedDirective
   ],
+  // exporting modules, components, directives & services
   exports: [
     CommonModule,
     FormsModule,

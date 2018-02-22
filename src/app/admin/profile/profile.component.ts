@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+
 import { UserService, User, Errors } from '../../shared';
 import { environment } from 'environments/environment';
 
@@ -19,11 +19,11 @@ export class ProfileComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private router: Router,
     private userService: UserService
   ) { }
 
   ngOnInit() {
+    // initializing user form controls
     this.userForm = this.fb.group({
       email: ['', Validators.compose([
         Validators.required, Validators.email])],
@@ -32,16 +32,19 @@ export class ProfileComponent implements OnInit {
       address: [''],
       picture: ['']
     });
+    // getting login user and populating the fields with saved data
     this.user = this.userService.getCurrentUser();
     if (this.user) {
       this.userForm.patchValue(this.user);
     }
   }
 
+  // method to update profile on update click
   updateUser() {
-    this.errors = new Errors();
-    this.isSubmitting = true;
+    this.errors = new Errors();       // removing error message
+    this.isSubmitting = true;         // disabling fields while submitting data to server
     let fileBrowser = this.fileInput.nativeElement;
+    // save image to server if file selected else update only fields data
     if (fileBrowser.files && fileBrowser.files[0]) {
       const formData = new FormData();
       formData.append("image", fileBrowser.files[0]);
@@ -56,7 +59,7 @@ export class ProfileComponent implements OnInit {
             this.updateProfile();
           },
           err => {
-            this.isSubmitting = false;
+            this.isSubmitting = false;  // enabling fields again
             this.errors = err;
           }
         );
@@ -66,21 +69,23 @@ export class ProfileComponent implements OnInit {
     }
   }
 
+  // method to update fields data to server
   updateProfile() {
     const updatedUser = this.userForm.value;
     this.userService
       .update(updatedUser, this.user._id)
       .subscribe(
         data => {
-          this.isSubmitting = false;
+          this.isSubmitting = false;   //enabling fields again
           this.message = 'Profile updated';
+          // remove 'Profile updated' message after 3 seconds
           setTimeout(() => {
             this.message = '';
           }, 3000);
         },
         err => {
           this.errors = err;
-          this.isSubmitting = false;
+          this.isSubmitting = false;  // enabling fields again
         }
       );
   }
