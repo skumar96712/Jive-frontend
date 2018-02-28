@@ -9,4 +9,5 @@ export class User {
   phone: string;
   address: string;
   picture: string;
+  ispaid: boolean;
 }
