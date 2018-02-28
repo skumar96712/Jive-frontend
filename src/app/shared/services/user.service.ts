@@ -95,6 +95,16 @@ export class UserService {
     });
   }
 
+  makePayment(token,amount,userId): Observable<any>
+  {
+    return this.apiService
+    .post('/stripePay/',{token: token,amount:amount,userId: userId})
+    .map(data => {
+      this.currentUserSubject.next(data.user);
+      return data;
+    });
+  };
+
   // upload image on server
   uploadImage(formData): Observable<any> {
     return this.apiService.files('/fileUpload', formData).map(

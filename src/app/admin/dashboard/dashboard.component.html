@@ -3,8 +3,15 @@
       <div class="col-md-12 profile-heading">
         <h4>Dashboard</h4>
       </div>
-      <div class="col-md-12">
+      <div class="col-md-12 ">
+        <div class="left-side-bar">
         <p>Hi, {{user.username}}({{user.email}}) </p>
+        <p *ngIf="!user.ispaid">You're not a paid user, </p>
+        <p *ngIf="user.ispaid">You're a paid user. </p>
+        <button [disabled]="isSubmitting" *ngIf="!user.ispaid" class="btn btn-lg btn-primary purchase-button" (click)="openCheckout()">Pay Now</button> 
+          <label class="response-message">{{message}}</label>
+          <list-errors [errors]="errors"></list-errors> 
+      </div>
       </div>
     </div>
 </div>

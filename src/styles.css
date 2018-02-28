@@ -5511,6 +5511,8 @@ border-radius: 0.3rem;
 .button-list li{display: inline-block;}
 .second-sec{
   background: #efefef;
+  display: inline-block;
+  width: 100%;
 }
 .profile-left label {
   background: #5cb85c;
@@ -5538,7 +5540,7 @@ font-weight: 600;
 
 @media (min-width: 1300px) and (max-width: 1400px){
 	.hm-nav-bar ul li a {
-		padding: 5px 23px;
+		padding: 5px 22px;
 	}
 	.hm-banner-live h4 {
 		font-size: 41px;
@@ -5614,4 +5616,29 @@ font-weight: 600;
   font-size: 14px;
   color: red;
 }
+  
+.purchase-button {
+  padding: 8px 29px;
+  font-weight: 600;
+  font-size: 18px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 4px grey;
+  margin-bottom: 34px;
+}
+.left-side-bar {
+  text-align: center;
+  padding-top: 9px;
+}
+.right-side-bar {
+  float: left;
+}
+.purchase-button:focus {
+  outline: 0;
+}
+.btn-primary:active:hover, .btn-primary:active:focus, .btn-primary:active.focus, 
+.btn-primary.active:hover, .btn-primary.active:focus, .btn-primary.active.focus, 
+.open > .btn-primary.dropdown-toggle:hover, .open > .btn-primary.dropdown-toggle:focus,
+ .open > .btn-primary.dropdown-toggle.focus {
 
+  outline: 0;
+}
