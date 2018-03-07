@@ -10,11 +10,11 @@ import { DashboardComponent, ProfileComponent } from './admin';
 
 // routing for all the urls and defining which pages will load for anonymous and others for authorized
 const appRoutes: Routes = [
-  { path: '', component: HomeComponent, pathMatch: 'full', resolve: { isAuthenticated: HomeAuthResolver } },
-  { path: 'login', component: AuthComponent, pathMatch: 'full', canActivate: [NoAuthGuard] },
-  { path: 'register', component: AuthComponent, pathMatch: 'full', canActivate: [NoAuthGuard] },
-  { path: 'dashboard', component: DashboardComponent, pathMatch: 'full', canActivate: [AuthGuard] },
-  { path: 'profile', component: ProfileComponent, pathMatch: 'full', canActivate: [AuthGuard] },
+  { path: '', component: HomeComponent, pathMatch: 'full', resolve: { isAuthenticated: HomeAuthResolver } },   // home page path: app/home/home.component.html
+  { path: 'login', component: AuthComponent, pathMatch: 'full', canActivate: [NoAuthGuard] },                  // login page path: app/auth/auth.component.html
+  { path: 'register', component: AuthComponent, pathMatch: 'full', canActivate: [NoAuthGuard] },               // register page path: app/auth/auth.component.html
+  { path: 'dashboard', component: DashboardComponent, pathMatch: 'full', canActivate: [AuthGuard] },           // dashboard page path: app/admin/dashboard/dashboard.component.html
+  { path: 'profile', component: ProfileComponent, pathMatch: 'full', canActivate: [AuthGuard] },               // profile page path: app/admin/profile/profile.component.html
 ];
 
 @NgModule({
